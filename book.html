@@ -75,54 +75,79 @@
     }
     .booking-alt-contact a:hover { text-decoration: underline; }
 
-    /* ── Microsoft Bookings embed wrapper ── */
-    .booking-embed-wrapper {
+    /* ── Booking CTA card ── */
+    .booking-cta-card {
       background: var(--off-white);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      min-height: 700px;
-    }
-    .booking-embed-wrapper iframe {
-      display: block;
-      width: 100%;
-      min-height: 700px;
-      border: none;
-    }
-
-    /* Placeholder shown until real URL is set */
-    .booking-placeholder {
+      padding: 3.5rem 3rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 4rem 2rem;
-      min-height: 700px;
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
-    .booking-placeholder-icon {
-      font-size: 3rem;
+    .booking-cta-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--gold-bg);
+      border: 2px solid rgba(196,146,46,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
     }
-    .booking-placeholder-title {
+    .booking-cta-title {
       font-family: var(--font-serif);
       font-weight: 700;
-      font-size: 1.3rem;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
       color: var(--navy);
+      line-height: 1.3;
     }
-    .booking-placeholder-desc {
-      font-size: 0.9rem;
+    .booking-cta-desc {
+      font-size: 0.95rem;
       color: var(--gray-600);
-      max-width: 380px;
-      line-height: 1.75;
+      max-width: 420px;
+      line-height: 1.8;
     }
-    .booking-placeholder-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 0.5rem;
+    .booking-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      border-radius: var(--radius-sm);
+      transition: background var(--t), transform var(--t);
+      text-decoration: none;
     }
+    .booking-cta-btn:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
+    }
+    .booking-cta-btn svg {
+      width: 18px; height: 18px; flex-shrink: 0;
+    }
+    .booking-cta-note {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+    .booking-cta-divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+    .booking-cta-alt {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .booking-cta-alt a {
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .booking-cta-alt a:hover { text-decoration: underline; }
 
     @media (max-width: 900px) {
       .booking-layout {
@@ -133,9 +158,7 @@
       }
     }
     @media (max-width: 600px) {
-      .booking-embed-wrapper { min-height: 500px; }
-      .booking-embed-wrapper iframe { min-height: 500px; }
-      .booking-placeholder { min-height: 500px; }
+      .booking-cta-card { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
@@ -219,56 +242,31 @@
           </div>
         </div>
 
-        <hr class="booking-divider">
-
-        <p class="booking-alt-contact">
-          Prefer to reach us directly?<br>
-          Email us at <a href="mailto:connect@questsoladvisory.com">connect@questsoladvisory.com</a>
-          or <a href="contact.html">send a message</a> via our contact form.
-        </p>
       </div>
 
-      <!-- Bookings embed -->
+      <!-- Booking CTA -->
       <div data-reveal data-reveal-d="1">
-        <div class="booking-embed-wrapper">
-
-          <!--
-          ══════════════════════════════════════════════════════
-          MICROSOFT BOOKINGS EMBED
-          ──────────────────────────────────────────────────────
-          To activate the booking widget:
-          1. Go to https://outlook.office365.com/bookings/
-          2. Create or open your Booking page
-          3. Go to Booking page > Publishing options > Copy the booking page URL
-          4. Replace the `src` value below with your copied URL
-          5. Remove the booking-placeholder div below the iframe
-
-          Typical URL format:
-          https://outlook.office365.com/owa/calendar/YourPage@yourdomain.com/bookings/
-          ══════════════════════════════════════════════════════
-          -->
-          <iframe
-            id="msBookingsFrame"
-            src="https://outlook.office.com/bookwithme/user/e4e3d382966340c9b9754e5d6719eefd@questsoladvisory.com/meetingtype/dkdB5yc9NE24WpKqm5exxg2?anonymous&ismsaljsauthenabled&ep=mlink"
-            scrolling="yes"
-            title="Book a Consultation with Questsol Advisory"
-            style="display:none;">
-          </iframe>
-
-          <!-- Remove this placeholder block once the iframe src URL above is set -->
-          <div class="booking-placeholder" id="bookingPlaceholder">
-            <div class="booking-placeholder-icon">📅</div>
-            <div class="booking-placeholder-title">Booking Calendar</div>
-            <div class="booking-placeholder-desc">
-              The online booking calendar will appear here once the Microsoft Bookings page is connected.
-              In the meantime, reach out directly and we'll schedule your consultation right away.
-            </div>
-            <div class="booking-placeholder-actions">
-              <a href="mailto:connect@questsoladvisory.com" class="btn btn-primary">Email to Book</a>
-              <a href="contact.html" class="btn btn-outline-navy">Send a Message</a>
-            </div>
-          </div>
-
+        <div class="booking-cta-card">
+          <div class="booking-cta-icon">📅</div>
+          <div class="booking-cta-title">Schedule Your Free 30-Minute Discovery Call</div>
+          <p class="booking-cta-desc">
+            Choose a time that works for you. You'll receive an instant calendar invite with a video link — no account needed.
+          </p>
+          <a
+            href="https://outlook.office.com/bookwithme/user/e4e3d382966340c9b9754e5d6719eefd@questsoladvisory.com/meetingtype/dkdB5yc9NE24WpKqm5exxg2?anonymous&ismsaljsauthenabled&ep=mlink"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="booking-cta-btn">
+            Open Booking Calendar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <p class="booking-cta-note">Opens Microsoft Bookings in a new tab</p>
+          <hr class="booking-cta-divider">
+          <p class="booking-cta-alt">
+            Prefer to reach us directly?<br>
+            Email <a href="mailto:connect@questsoladvisory.com">connect@questsoladvisory.com</a>
+            or <a href="contact.html">send a message</a> via our contact form.
+          </p>
         </div>
       </div>
 
@@ -350,15 +348,6 @@ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.classList.remove('nav-open');
 }));
 
-// Show the iframe once a real URL is configured (i.e. src doesn't contain the placeholder text)
-(function () {
-  const frame = document.getElementById('msBookingsFrame');
-  const placeholder = document.getElementById('bookingPlaceholder');
-  if (frame && !frame.src.includes('REPLACE_WITH_YOUR_MICROSOFT_BOOKINGS_URL')) {
-    placeholder.style.display = 'none';
-    frame.style.display = 'block';
-  }
-})();
 </script>
 </body>
 </html>
