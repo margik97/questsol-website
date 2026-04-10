@@ -21,9 +21,9 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      overflow: hidden;
+      padding: 2.5rem 2rem 2rem;
       transition: border-color var(--t), box-shadow var(--t), transform var(--t);
-      display: flex; flex-direction: column;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
     }
     .team-card-lg:hover {
       border-color: var(--gold);
@@ -31,12 +31,15 @@
       transform: translateY(-4px);
     }
 
-    /* Photo area */
+    /* Circular photo */
     .team-photo-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 3;
+      width: 150px; height: 150px;
+      border-radius: 50%;
       overflow: hidden;
+      border: 4px solid var(--gold-pale);
+      box-shadow: 0 0 0 1px rgba(196,146,46,0.2);
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
     }
     .team-photo-wrap img {
@@ -44,50 +47,42 @@
       object-fit: cover; object-position: center top;
       display: block;
     }
-    /* Initials fallback (for cards without a photo) */
+    /* Initials fallback */
     .team-photo-initials {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-serif); font-size: 3.5rem; font-weight: 700; color: var(--gold);
-    }
-    /* Gold bottom border accent on photo */
-    .team-photo-wrap::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-300) 100%);
+      font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--gold);
     }
 
     /* Card body */
     .team-card-body {
-      padding: 1.6rem 1.75rem 1.75rem;
-      display: flex; flex-direction: column; flex: 1;
+      display: flex; flex-direction: column; align-items: center; flex: 1; width: 100%;
     }
     .team-card-header {
-      display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       margin-bottom: 0.3rem;
     }
     .team-name-lg {
-      font-family: var(--font-serif); font-weight: 700; font-size: 1.15rem;
+      font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem;
       color: var(--navy); line-height: 1.2;
     }
     .team-linkedin {
       flex-shrink: 0;
-      width: 32px; height: 32px;
-      border-radius: 6px;
+      width: 28px; height: 28px;
+      border-radius: 5px;
       background: #0A66C2;
       display: flex; align-items: center; justify-content: center;
       transition: opacity var(--t), transform var(--t);
     }
     .team-linkedin:hover { opacity: 0.85; transform: translateY(-1px); }
-    .team-linkedin svg { width: 16px; height: 16px; fill: #fff; display: block; }
+    .team-linkedin svg { width: 14px; height: 14px; fill: #fff; display: block; }
     .team-role-lg {
-      font-size: 0.8rem; font-weight: 600; color: var(--gold);
-      letter-spacing: 0.03em; margin-bottom: 1rem; text-transform: uppercase;
+      font-size: 0.78rem; font-weight: 600; color: var(--gold);
+      letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;
     }
     .team-divider {
       width: 28px; height: 2px; background: var(--gold-pale);
-      margin-bottom: 1rem; border-radius: 2px;
+      margin: 0 auto 1rem; border-radius: 2px;
     }
     .team-bio {
       font-size: 0.875rem; color: var(--gray-600); line-height: 1.8; flex: 1;
